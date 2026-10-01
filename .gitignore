@@ -1,0 +1,7 @@
+venv/
+backend/data/*.csv
+!backend/data/sample_feed.csv
+backend/payguard.db
+__pycache__/
+.DS_Store
+node_modules/
