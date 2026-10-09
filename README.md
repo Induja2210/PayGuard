@@ -4,6 +4,12 @@
 
 PayGuard scores every incoming payment for fraud risk, explains *why* a payment looks suspicious in plain English, and gives fraud analysts a dashboard to review and act on flagged transactions.
 
+🔗 **Live Demo:** [pay-guard-drab.vercel.app](https://pay-guard-drab.vercel.app)
+
+📘 **API Docs:** [payguard-tr7h.onrender.com/docs](https://payguard-tr7h.onrender.com/docs)
+
+> The backend runs on Render's free tier, so the first load after a period of inactivity can take up to a minute while the server wakes up. Click **Start live feed** to stream payments.
+
 ![PayGuard dashboard](docs/dashboard.png)
 
 ---
@@ -66,6 +72,7 @@ PR-AUC and precision/recall are used instead of accuracy, because accuracy is mi
 **ML:** Python, pandas, scikit-learn, XGBoost, SHAP (TreeSHAP)
 **Backend:** FastAPI, SQLite, Uvicorn
 **Frontend:** React (Vite), Recharts
+**Deployment:** Render (backend), Vercel (frontend)
 
 ## Project structure
 
@@ -95,7 +102,7 @@ payguard/
 | POST | `/transactions/{id}/review` | Mark a payment as fraud or safe |
 | GET | `/metrics` | Summary counts, precision and recall |
 
-Interactive docs are available at `/docs` when the backend is running.
+Interactive docs are available at `/docs` when the backend is running, or live at [payguard-tr7h.onrender.com/docs](https://payguard-tr7h.onrender.com/docs).
 
 Example `/predict` response for a suspicious transfer:
 
@@ -125,7 +132,7 @@ cd frontend
 npm install
 npm run dev
 ```
-Open `http://localhost:5173`.
+Open `http://localhost:5173`. The dashboard uses the local backend by default; to point it at another backend, set `VITE_API_URL` (for example, in `frontend/.env`).
 
 ## Future improvements
 
